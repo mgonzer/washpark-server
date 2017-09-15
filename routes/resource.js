@@ -18,6 +18,13 @@ router.get('/:id', (req, res, next) => {
   })
 })
 
+router.get('/category/:category', (req, res)=> {
+  queries.getSomeResources(req.params.category)
+  .then(resources=>{
+    res.json(resources)
+  })
+})
+
 router.put('/:id', authMiddleware.allowAdminAccess, (req, res)=>{
   queries.updateResource(req.params.id, req.body)
   .then(resource=>{

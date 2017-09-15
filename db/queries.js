@@ -42,6 +42,9 @@ module.exports = {
   getAllResources: function(){
     return knex('resource');
   },
+  getSomeResources: function(category){
+    return knex('resource').where('category', category)
+  },
   getOneResource: function(id){
     return knex('resource').where('id', id)
   },

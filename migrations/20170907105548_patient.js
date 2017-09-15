@@ -6,6 +6,7 @@ exports.up = function(knex, Promise) {
     table.text('username')
     table.text('password');
     table.string('diagnosis');
+    table.string('treatment_plan')
   })
 };
 
