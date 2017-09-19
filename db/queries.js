@@ -65,6 +65,9 @@ module.exports = {
   },
   addResourceToPatient: function(resource){
     return knex('patient_resource').insert(resource).returning('*')
+    .then(result=>{
+      return knex('patient')
+    })
   },
   deleteResourceFromPatient: function(id, rid){
     return knex('patient_resource').where('patient_id', id).andWhere('resource_id', rid).del()
